@@ -61,7 +61,7 @@ Custom-Chrome-Dashboard
 
 Clone the repository:
 
-git clone https://github.com/yourusername/custom-chrome-dashboard.git
+git clone https://github.com/King6u/landing-page.git
 
 Open the project:
 
