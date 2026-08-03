@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/hero.css">
+    <link rel="stylesheet" href="assets/css/animation.css">
+
+</head>
+
+<body>
+
+    <!-- ======================================
+         Background
+    ======================================= -->
+
+    <div id="background">
+
+        <video
+            id="bg-video"
+            autoplay
+            muted
+            loop
+            playsinline>
+
+            <source
+                src="assets/video/bg.mp4"
+                type="video/mp4">
+
+        </video>
+
+        <div id="overlay"></div>
+
+        <div id="aurora"></div>
+
+    </div>
+
+    <!-- Floating Particles -->
+    <div id="particles"></div>
+
+    <!-- Mouse Glow -->
+    <div class="cursor-glow"></div>
+
+    <!-- ======================================
+         Hero
+    ======================================= -->
+
+    <main class="hero">
+
+        <div class="glass-card">
+
+            <!-- Greeting -->
+
+            <div class="greeting-container">
+
+                <h2 id="greeting">
+
+                    Good Evening, Kingshuk
+
+                </h2>
+
+                <div class="underline"></div>
+
+            </div>
+
+            <!-- Clock -->
+
+            <div class="clock-container">
+
+                <h1 id="clock">
+
+                    00:00:00
+
+                </h1>
+
+                <p id="date">
+
+                    Sunday, August 2, 2026
+
+                </p>
+
+            </div>
+
+            <!-- Divider -->
+
+            <div class="divider"></div>
+
+            <!-- Quote -->
+
+            <div class="quote-container">
+
+                <p id="quote">
+
+                    "Discipline is choosing what you want most over what you want now."
+
+                </p>
+
+                <span id="author">
+
+                    — Abraham Lincoln
+
+                </span>
+
+            </div>
+
+            <!-- Weather -->
+
+            <div class="weather-card">
+
+                <div class="weather-icon">
+
+                    ☀️
+
+                </div>
+
+                <div class="weather-info">
+
+                    <h3 id="temperature">
+
+                        29°C
+
+                    </h3>
+
+                    <p id="location">
+
+                        Kolkata, India
+
+                    </p>
+
+                    <small id="condition">
+
+                        Clear Sky
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            <!-- ======================================
+                 Smart Search
+            ======================================= -->
+
+            <div class="search-section">
+
+                <div class="search-box">
+
+                    <span class="search-icon">
+
+                        🔍
+
+                    </span>
+
+                    <input
+                        id="searchInput"
+                        type="text"
+                        placeholder="Search Google, ChatGPT, Gemini, GitHub, YouTube..."
+                        autocomplete="off">
+
+                </div>
+
+                <div class="search-engines">
+
+                    <button class="engine active"
+                            data-engine="google">
+
+                        Google
+
+                    </button>
+
+                    <button class="engine"
+                            data-engine="chatgpt">
+
+                        ChatGPT
+
+                    </button>
+
+                    <button class="engine"
+                            data-engine="gemini">
+
+                        Gemini
+
+                    </button>
+
+                    <button class="engine"
+                            data-engine="github">
+
+                        GitHub
+
+                    </button>
+
+                    <button class="engine"
+                            data-engine="youtube">
+
+                        YouTube
+
+                    </button>
+
+                    <button class="engine"
+                            data-engine="reddit">
+
+                        Reddit
+
+                    </button>
+
+                    <button class="engine"
+                            data-engine="stackoverflow">
+
+                        Stack Overflow
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ======================================
+         Scripts
+    ======================================= -->
+
+    <script src="assets/js/background.js"></script>
+
+    <script src="assets/js/greetings.js"></script>
+
+    <script src="assets/js/clock.js"></script>
+
+    <script src="assets/js/quotes.js"></script>
+
+    <script src="assets/js/weather.js"></script>
+
+    <script src="assets/js/mouseGlow.js"></script>
+
+    <script src="assets/js/particles.js"></script>
+
+    <script src="assets/js/search.js"></script>
+
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>

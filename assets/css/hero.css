@@ -1,0 +1,1004 @@
+/* ==========================================================
+   ROOT VARIABLES
+========================================================== */
+
+:root{
+
+    --primary:#3b82f6;
+    --secondary:#8b5cf6;
+    --accent:#06b6d4;
+
+    --glass:rgba(255,255,255,.08);
+    --glass-border:rgba(255,255,255,.14);
+
+    --text:#ffffff;
+    --text-secondary:#cbd5e1;
+    --text-muted:#94a3b8;
+
+    --shadow:
+
+    0 25px 70px rgba(0,0,0,.45);
+
+}
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    font-family:"Inter",sans-serif;
+
+    background:#000;
+
+    color:white;
+
+}
+
+/* ==========================================================
+   BACKGROUND CONTAINER
+========================================================== */
+
+/* ==========================================================
+   BACKGROUND
+========================================================== */
+
+#background{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100vw;
+    height:100vh;
+
+    overflow:hidden;
+
+    z-index:0;
+
+}
+
+#bg-video{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    object-position:center center;
+
+    opacity:1;
+
+    transform:scale(1.05);
+
+    filter:
+        brightness(.55)
+        contrast(1.08)
+        saturate(1.15);
+
+}
+
+#overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.42);
+
+}
+
+#aurora{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(59,130,246,.18),
+            transparent 40%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(139,92,246,.15),
+            transparent 45%
+        );
+
+    filter:blur(70px);
+
+    animation:auroraMove 20s linear infinite;
+
+}
+
+/* ==========================================================
+   GRAIN
+========================================================== */
+
+#background::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+    radial-gradient(
+
+        rgba(255,255,255,.025) 1px,
+
+        transparent 1px
+
+    );
+
+    background-size:4px 4px;
+
+    opacity:.15;
+
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero{
+
+    position:relative;
+
+    z-index:10;
+
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* ==========================================================
+   GLASS CARD
+========================================================== */
+
+.glass-card{
+
+    position:relative;
+
+    z-index:20;
+
+    overflow:hidden;
+
+    width:760px;
+
+    padding:65px;
+
+    border-radius:34px;
+
+    background:rgba(20,25,35,.32);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.45);
+
+}
+
+/* Put ALL content above decorative layers */
+
+.glass-card > *{
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+/* ===========================
+   SHINE
+=========================== */
+
+.glass-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:1;
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.12),
+            transparent 45%,
+            transparent 60%,
+            rgba(255,255,255,.05)
+        );
+
+}
+
+/* ===========================
+   BORDER
+=========================== */
+
+.glass-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:1;
+
+    pointer-events:none;
+
+    border-radius:34px;
+
+    padding:1px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.20),
+            transparent,
+            rgba(59,130,246,.25)
+        );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+
+    mask-composite:exclude;
+
+}
+
+/* ==========================================================
+   GREETING
+========================================================== */
+
+.greeting-container{
+
+    text-align:center;
+
+}
+
+#greeting{
+
+    font-size:44px;
+
+    font-weight:700;
+
+    color:white;
+
+    letter-spacing:.5px;
+
+    transition:
+
+    opacity .35s,
+
+    transform .35s;
+
+}
+
+/* ==========================================================
+   UNDERLINE
+========================================================== */
+
+.underline{
+
+    width:120px;
+
+    height:5px;
+
+    margin:18px auto 45px;
+
+    border-radius:999px;
+
+    background:
+
+    linear-gradient(
+
+    90deg,
+
+    var(--primary),
+
+    var(--secondary)
+
+    );
+
+    box-shadow:
+
+    0 0 25px rgba(59,130,246,.45);
+
+}
+
+/* ==========================================================
+   CLOCK CONTAINER
+========================================================== */
+
+.clock-container{
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+}
+
+#clock{
+
+    font-size:96px;
+
+    font-weight:900;
+
+    letter-spacing:5px;
+
+    color:white;
+
+    line-height:1;
+
+    user-select:none;
+
+    transition:
+
+    opacity .3s,
+
+    transform .3s;
+
+    text-shadow:
+
+    0 5px 30px rgba(0,0,0,.25);
+
+}
+
+#date{
+
+    margin-top:20px;
+
+    color:var(--text-secondary);
+
+    font-size:24px;
+
+    font-weight:500;
+
+}
+
+/* ==========================================================
+   DIVIDER
+========================================================== */
+
+.divider{
+
+    width:100%;
+
+    height:1px;
+
+    margin:45px 0;
+
+    background:
+
+    rgba(255,255,255,.12);
+
+}
+
+/* ==========================================================
+   QUOTES
+========================================================== */
+
+.quote-container{
+
+    text-align:center;
+
+    min-height:120px;
+
+    margin-bottom:45px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+#quote{
+
+    font-size:23px;
+
+    line-height:1.8;
+
+    color:white;
+
+    font-style:italic;
+
+    font-weight:500;
+
+    transition:
+
+        opacity .35s ease,
+
+        transform .35s ease;
+
+}
+
+#author{
+
+    margin-top:18px;
+
+    color:var(--text-muted);
+
+    font-size:16px;
+
+    letter-spacing:.4px;
+
+    transition:
+
+        opacity .35s ease;
+
+}
+
+/* ==========================================================
+   WEATHER
+========================================================== */
+
+.weather-card{
+
+    width:360px;
+
+    max-width:100%;
+
+    margin:auto;
+
+    padding:18px 28px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:20px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(20px);
+
+    transition:
+
+        transform .3s,
+
+        background .3s,
+
+        border-color .3s;
+
+}
+
+.weather-card:hover{
+
+    transform:translateY(-5px);
+
+    background:rgba(255,255,255,.09);
+
+    border-color:rgba(59,130,246,.35);
+
+}
+
+.weather-icon{
+
+    font-size:42px;
+
+    filter:drop-shadow(0 0 12px rgba(255,255,255,.3));
+
+}
+
+.weather-info{
+
+    text-align:left;
+
+}
+
+#temperature{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:white;
+
+}
+
+#location{
+
+    margin-top:4px;
+
+    color:var(--text-secondary);
+
+    font-size:18px;
+
+}
+
+#condition{
+
+    display:block;
+
+    margin-top:5px;
+
+    color:var(--text-muted);
+
+    text-transform:capitalize;
+
+}
+
+
+/* ==========================================================
+   CURSOR GLOW
+========================================================== */
+
+.cursor-glow{
+
+    position:fixed;
+
+    width:420px;
+    height:420px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(59,130,246,.30) 0%,
+
+            rgba(59,130,246,.18) 30%,
+
+            rgba(59,130,246,.08) 55%,
+
+            transparent 80%
+
+        );
+
+    filter:blur(60px);
+
+    z-index:2;
+
+    opacity:.8;
+
+}
+
+/* ==========================================================
+   PARTICLES
+========================================================== */
+
+#particles{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:-2;
+
+}
+
+.particle{
+
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:white;
+
+    opacity:.35;
+
+    box-shadow:
+
+    0 0 12px white;
+
+    animation:
+
+        floatParticle linear infinite;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:900px){
+
+    .glass-card{
+
+        width:95%;
+
+        padding:45px;
+
+    }
+
+    #greeting{
+
+        font-size:34px;
+
+    }
+
+    #clock{
+
+        font-size:70px;
+
+    }
+
+    #date{
+
+        font-size:20px;
+
+    }
+
+}
+
+@media (max-width:600px){
+
+    .glass-card{
+
+        padding:32px;
+
+    }
+
+    #greeting{
+
+        font-size:28px;
+
+    }
+
+    #clock{
+
+        font-size:48px;
+
+    }
+
+    #quote{
+
+        font-size:18px;
+
+    }
+
+    .weather-card{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .weather-info{
+
+        text-align:center;
+
+    }
+
+}
+
+/* ==========================================================
+   KEYFRAMES
+========================================================== */
+
+@keyframes auroraMove{
+
+    0%{
+
+        transform:
+
+        scale(1)
+
+        rotate(0deg);
+
+    }
+
+    50%{
+
+        transform:
+
+        scale(1.2)
+
+        rotate(6deg);
+
+    }
+
+    100%{
+
+        transform:
+
+        scale(1)
+
+        rotate(0deg);
+
+    }
+
+}
+
+@keyframes floatParticle{
+
+    0%{
+
+        transform:
+
+        translateY(0)
+
+        scale(.8);
+
+        opacity:.15;
+
+    }
+
+    50%{
+
+        opacity:.55;
+
+    }
+
+    100%{
+
+        transform:
+
+        translateY(-180px)
+
+        scale(1.2);
+
+        opacity:0;
+
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+        translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+        translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+   PAGE LOAD
+========================================================== */
+
+.glass-card{
+
+    animation:
+
+        fadeUp
+
+        .9s
+
+        ease;
+
+}
+
+#greeting{
+
+    animation:
+
+        fadeUp
+
+        1s;
+
+}
+
+#clock{
+
+    animation:
+
+        fadeUp
+
+        1.2s;
+
+}
+
+.quote-container{
+
+    animation:
+
+        fadeUp
+
+        1.4s;
+
+}
+
+.weather-card{
+
+    animation:
+
+        fadeUp
+
+        1.6s;
+
+}
+/* ==========================================================
+   SMART SEARCH
+========================================================== */
+
+.search-section{
+
+    margin-top:45px;
+
+}
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:16px 22px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(15px);
+
+    transition:.3s;
+
+}
+
+.search-box:focus-within{
+
+    border-color:#3b82f6;
+
+    box-shadow:0 0 25px rgba(59,130,246,.25);
+
+}
+
+.search-icon{
+
+    font-size:20px;
+
+    color:white;
+
+}
+
+#searchInput{
+
+    width:100%;
+
+    background:transparent;
+
+    border:none;
+
+    outline:none;
+
+    color:white;
+
+    font-size:18px;
+
+    font-family:inherit;
+
+}
+
+#searchInput::placeholder{
+
+    color:#94a3b8;
+
+}
+
+.search-engines{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-top:18px;
+
+}
+
+.engine{
+
+    padding:8px 18px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.06);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    font-size:14px;
+
+}
+
+.engine:hover{
+
+    transform:translateY(-2px);
+
+    background:rgba(255,255,255,.12);
+
+}
+
+.engine.active{
+
+    background:#3b82f6;
+
+}

@@ -1,0 +1,288 @@
+/* ===========================
+   FADE UP
+=========================== */
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:
+
+translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:
+
+translateY(0);
+
+}
+
+}
+
+/* ===========================
+   FADE IN
+=========================== */
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+/* ===========================
+   FLOAT
+=========================== */
+
+@keyframes floating{
+
+0%{
+
+transform:
+
+translateY(0px);
+
+}
+
+50%{
+
+transform:
+
+translateY(-8px);
+
+}
+
+100%{
+
+transform:
+
+translateY(0px);
+
+}
+
+}
+
+/* ===========================
+   GLOW
+=========================== */
+
+@keyframes glow{
+
+0%{
+
+box-shadow:
+
+0 0 10px rgba(96,165,250,.2);
+
+}
+
+50%{
+
+box-shadow:
+
+0 0 40px rgba(96,165,250,.45);
+
+}
+
+100%{
+
+box-shadow:
+
+0 0 10px rgba(96,165,250,.2);
+
+}
+
+}
+
+/* ===========================
+   GRADIENT
+=========================== */
+
+@keyframes gradientMove{
+
+0%{
+
+transform:
+
+scale(1);
+
+}
+
+50%{
+
+transform:
+
+scale(1.15);
+
+}
+
+100%{
+
+transform:
+
+scale(1);
+
+}
+
+}
+
+/* ===========================
+   QUOTE
+=========================== */
+
+@keyframes quoteFade{
+
+0%{
+
+opacity:0;
+
+transform:
+
+translateY(15px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:
+
+translateY(0);
+
+}
+
+}
+
+/* ===========================
+   CLOCK PULSE
+=========================== */
+
+@keyframes clockPulse{
+
+0%{
+
+transform:
+
+scale(1);
+
+}
+
+50%{
+
+transform:
+
+scale(1.02);
+
+}
+
+100%{
+
+transform:
+
+scale(1);
+
+}
+
+}
+
+/* ===========================
+   APPLY ANIMATIONS
+=========================== */
+
+.glass-card{
+
+animation:
+
+fadeUp
+1.2s
+ease;
+
+}
+
+#greeting{
+
+animation:
+
+fadeUp
+1s;
+
+}
+
+#clock{
+
+animation:
+
+fadeUp
+1.3s,
+clockPulse
+5s
+infinite;
+
+}
+
+#date{
+
+animation:
+
+fadeUp
+1.6s;
+
+}
+
+.quote-container{
+
+animation:
+
+fadeIn
+2s;
+
+}
+
+.weather-card{
+
+animation:
+
+floating
+6s
+ease-in-out
+infinite;
+
+}
+
+.cursor-glow{
+
+animation:
+
+glow
+4s
+ease-in-out
+infinite;
+
+}
+
+.underline{
+
+animation:
+
+glow
+3s
+infinite;
+
+}
