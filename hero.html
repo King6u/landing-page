@@ -40,8 +40,13 @@
 
         </video>
 
+        <!-- Existing overlay -->
         <div id="overlay"></div>
 
+        <!-- NEW Dynamic Tint -->
+        <div id="backgroundTint"></div>
+
+        <!-- Aurora -->
         <div id="aurora"></div>
 
     </div>
@@ -51,6 +56,20 @@
 
     <!-- Mouse Glow -->
     <div class="cursor-glow"></div>
+
+    <!-- ======================================
+         Ambient Audio
+    ======================================= -->
+    <audio
+        id="ambientAudio"
+        loop
+        preload="auto">
+
+        <source
+            src="assets/audio/rain.mp3"
+            type="audio/mpeg">
+
+    </audio>
 
     <!-- ======================================
          Hero
@@ -156,70 +175,87 @@
 
                 <div class="search-box">
 
-                    <span class="search-icon">
-
-                        🔍
-
-                    </span>
+                    <img
+                        id="searchEngineIcon"
+                        class="search-engine-icon"
+                        src="assets/icons/google.svg"
+                        alt="Search Engine">
 
                     <input
                         id="searchInput"
                         type="text"
-                        placeholder="Search Google, ChatGPT, Gemini, GitHub, YouTube..."
+                        placeholder="Search anything..."
                         autocomplete="off">
+
+                    <button
+                        id="audioToggle"
+                        title="Ambient Sound">
+
+                        🔊
+
+                    </button>
 
                 </div>
 
                 <div class="search-engines">
 
-                    <button class="engine active"
-                            data-engine="google">
+                    <button class="engine"
+                            data-engine="google"
+                            title="Google">
 
-                        Google
+                        <img src="assets/icons/google.svg" alt="Google">
 
                     </button>
 
                     <button class="engine"
-                            data-engine="chatgpt">
+                            data-engine="chatgpt"
+                            title="ChatGPT">
 
-                        ChatGPT
-
-                    </button>
-
-                    <button class="engine"
-                            data-engine="gemini">
-
-                        Gemini
+                        <img src="assets/icons/chatgpt-icon.svg" alt="ChatGPT">
 
                     </button>
 
                     <button class="engine"
-                            data-engine="github">
+                            data-engine="gemini"
+                            title="Gemini">
 
-                        GitHub
-
-                    </button>
-
-                    <button class="engine"
-                            data-engine="youtube">
-
-                        YouTube
+                        <img src="assets/icons/googlegemini.svg" alt="Gemini">
 
                     </button>
 
                     <button class="engine"
-                            data-engine="reddit">
+                            data-engine="github"
+                            title="GitHub">
 
-                        Reddit
+                        <img src="assets/icons/github.svg" alt="GitHub">
 
                     </button>
 
                     <button class="engine"
-                            data-engine="stackoverflow">
+                            data-engine="youtube"
+                            title="YouTube">
 
-                        Stack Overflow
+                        <img src="assets/icons/youtube.svg" alt="YouTube">
 
                     </button>
+
+                    <button class="engine"
+                            data-engine="reddit"
+                            title="Reddit">
+
+                        <img src="assets/icons/reddit.svg" alt="Reddit">
+
+                    </button>
+
+                    <button class="engine"
+                            data-engine="stackoverflow"
+                            title="Stack Overflow">
+
+                        <img src="assets/icons/stackoverflow.svg" alt="Stack Overflow">
+
+                    </button>
+
+                </div>
 
                 </div>
 
@@ -248,6 +284,8 @@
     <script src="assets/js/particles.js"></script>
 
     <script src="assets/js/search.js"></script>
+
+    <script src="assets/js/audio.js"></script>
 
     <script src="assets/js/app.js"></script>
 

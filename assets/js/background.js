@@ -6,9 +6,25 @@ class Background {
         this.overlay = document.getElementById("overlay");
 
         if (!this.video || !this.overlay) {
+
             console.warn("Background elements not found.");
             return;
+
         }
+
+        /* =====================================
+           Background Videos
+        ===================================== */
+
+        this.videos = [
+
+            "assets/video/bg.mp4",
+            "assets/video/bg1.mp4",
+            "assets/video/bg2.mp4"
+
+        ];
+
+        this.currentVideo = -1;
 
         this.init();
 
@@ -16,16 +32,26 @@ class Background {
 
     init() {
 
+        // Load a random background immediately
+        this.changeVideo();
+
+        // Update brightness every minute
         this.updateTheme();
 
-        // Update every minute
         setInterval(() => {
 
             this.updateTheme();
 
         }, 60000);
 
-        // Restart if the browser stops the loop
+        // Change background every 5 minutes
+        setInterval(() => {
+
+            this.changeVideo();
+
+        }, 5 * 60 * 1000);
+
+        // Restart if browser pauses looping
         this.video.addEventListener("ended", () => {
 
             this.video.currentTime = 0;
@@ -46,6 +72,44 @@ class Background {
         });
 
     }
+
+    /* =====================================
+       Random Video
+    ===================================== */
+
+    changeVideo() {
+
+        let index;
+
+        do {
+
+            index = Math.floor(Math.random() * this.videos.length);
+
+        } while (index === this.currentVideo);
+
+        this.currentVideo = index;
+
+        // Fade out
+        this.video.style.opacity = "0";
+
+        setTimeout(() => {
+
+            this.video.src = this.videos[index];
+
+            this.video.load();
+
+            this.video.play().catch(() => {});
+
+            // Fade back in
+            this.video.style.opacity = "1";
+
+        }, 600);
+
+    }
+
+    /* =====================================
+       Time Based Theme
+    ===================================== */
 
     updateTheme() {
 

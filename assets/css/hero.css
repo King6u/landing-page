@@ -88,12 +88,22 @@ body{
 
     opacity:1;
 
-    transform:scale(1.05);
+    transition:
+        opacity .8s ease,
+        filter .6s ease;
 
     filter:
         brightness(.55)
         contrast(1.08)
         saturate(1.15);
+
+    animation:
+        backgroundZoom 40s ease-in-out infinite;
+
+    will-change:
+        transform,
+        opacity,
+        filter;
 
 }
 
@@ -106,7 +116,25 @@ body{
     background:rgba(0,0,0,.42);
 
 }
+#backgroundTint{
 
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:transparent;
+
+    opacity:.22;
+
+    transition:
+        background .45s ease,
+        opacity .45s ease;
+
+    mix-blend-mode:screen;
+
+}
 #aurora{
 
     position:absolute;
@@ -933,7 +961,11 @@ body{
 
 #searchInput{
 
-    width:100%;
+    flex:1;
+
+    min-width:0;
+
+    width:auto;
 
     background:transparent;
 
@@ -955,50 +987,173 @@ body{
 
 }
 
+/* ==========================================
+   SEARCH ENGINE DOCK
+========================================== */
+
 .search-engines{
 
     display:flex;
 
     justify-content:center;
 
-    gap:10px;
+    align-items:flex-end;
 
-    flex-wrap:wrap;
+    gap:16px;
 
-    margin-top:18px;
+    margin-top:28px;
 
 }
 
 .engine{
 
-    padding:8px 18px;
+    width:62px;
+
+    height:62px;
 
     border:none;
 
-    border-radius:999px;
+    border-radius:50%;
 
-    background:rgba(255,255,255,.06);
+    display:flex;
 
-    color:white;
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(14px);
 
     cursor:pointer;
 
-    transition:.25s;
+    opacity:.65;
 
-    font-size:14px;
+    transition:
+
+        opacity .25s ease,
+
+        background .25s ease,
+
+        box-shadow .35s ease;
 
 }
+
+.engine img{
+
+    width:26px;
+
+    height:26px;
+
+    object-fit:contain;
+
+    transition:
+
+        transform .35s cubic-bezier(.22,1,.36,1),
+
+        filter .25s ease;
+
+}
+
+/* Hover the BUTTON */
 
 .engine:hover{
 
-    transform:translateY(-2px);
+    opacity:1;
 
-    background:rgba(255,255,255,.12);
+    background:rgba(59,130,246,.14);
+
+    box-shadow:
+
+        0 0 22px rgba(59,130,246,.35);
 
 }
 
+/* Animate ONLY THE ICON */
+
+.engine:hover img{
+
+    transform:
+
+        translateY(-4px)
+
+        scale(1.35);
+
+}
+
+/* Selected */
+
 .engine.active{
 
-    background:#3b82f6;
+    opacity:1;
+
+    background:rgba(59,130,246,.18);
+
+    box-shadow:
+
+        0 0 24px rgba(59,130,246,.40);
+
+}
+
+.engine.active img{
+
+    transform:scale(1.25);
+
+}
+
+/* Dim neighbours */
+
+.search-engines:hover .engine{
+
+    opacity:.45;
+
+}
+
+.search-engines:hover .engine:hover{
+
+    opacity:1;
+
+}
+@keyframes backgroundZoom{
+
+    0%{
+
+        transform:
+            scale(1.05)
+            translate3d(0,0,0);
+
+    }
+
+    25%{
+
+        transform:
+            scale(1.08)
+            translate3d(-1%,-0.5%,0);
+
+    }
+
+    50%{
+
+        transform:
+            scale(1.12)
+            translate3d(1%,0.5%,0);
+
+    }
+
+    75%{
+
+        transform:
+            scale(1.08)
+            translate3d(0.5%,-1%,0);
+
+    }
+
+    100%{
+
+        transform:
+            scale(1.05)
+            translate3d(0,0,0);
+
+    }
 
 }

@@ -8,5 +8,6 @@ window.addEventListener("DOMContentLoaded", () => {
     new Particles();
     new Background();
     new Search();
+    new AmbientAudio();
 
 });
